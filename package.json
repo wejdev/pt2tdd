@@ -4,8 +4,9 @@
   "description": "Test project for TDD learning",
   "main": "index.ts",
   "scripts": {
-    "builde": "esbuild ./src/**/*.ts --outdir=./bin --platform=node",
     "build": "tsc",
+    "builde": "esbuild ./src/**/*.ts --outdir=./bin --platform=node",
+
     "test": "jest --verbose"
   },
   "keywords": [],

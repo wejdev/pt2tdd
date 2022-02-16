@@ -1,6 +1,13 @@
 function fizzBuzz(n: number): string[] {
 
-    return ["1"];
+    let results: Array<string> = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 3)
+            results.push("Fizz");
+        else
+            results.push(String(i));
+    }
+    return results;
 };
 
 export { fizzBuzz }
