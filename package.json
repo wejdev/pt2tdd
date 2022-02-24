@@ -7,7 +7,7 @@
     "build": "tsc",
     "builde": "esbuild ./src/**/*.ts --outdir=./bin --platform=node",
 
-    "test": "jest --verbose"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
