@@ -1,6 +1,30 @@
 function searchInsert(nums: number[], target: number): number {
-    return 1;
+
+    let left = 0;
+    let right = nums.length - 1;
+    let mid = 0;
+
+    while (left <= right) {
+        mid = left + Math.floor((right - left) / 2);
+        let midVal = nums[mid];
+
+        if (midVal < target)
+            left = mid + 1;
+        else if (midVal > target)
+            right = mid - 1;
+        else // (midVal === target)
+            return mid;
+    }
+
+    return left;
 };
+
+
+function searchInsert2(nums: number[], target: number): number {
+    // Not O(log(n)), but trick!
+    return nums.filter((item: number) => item < target).length;
+};
+
 
 export { searchInsert as searchInsertPosition }
 
