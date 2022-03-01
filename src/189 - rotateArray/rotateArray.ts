@@ -1,12 +1,11 @@
 /**
  Do not return anything, modify nums in-place instead.
  */
+
 function rotate(nums: number[], k: number): void {
     const numsLen = nums.length;
     k = k % numsLen;
-    const tail = nums.slice(numsLen - k, numsLen);
-    nums.unshift(...tail)
-    nums.length = numsLen;
+    nums.unshift(...nums.splice(nums.length - k, k));
 };
 
 function rotate2(nums: number[], k: number): void {
@@ -14,10 +13,19 @@ function rotate2(nums: number[], k: number): void {
     k = k % numsLen;
     const tail = nums.slice(numsLen - k, numsLen);
     nums.unshift(...tail)
+    nums.length = numsLen;
+};
+
+function rotate3(nums: number[], k: number): void {
+    const numsLen = nums.length;
+    k = k % numsLen;
+    const tail = nums.slice(numsLen - k, numsLen);
+    nums.unshift(...tail)
     nums.splice(numsLen);
 };
 
-export { rotate as rotateArray }
+
+export { rotate2 as rotateArray }
 
 /*
 Given an array, rotate the array to the right by k steps, where k is non-negative.
