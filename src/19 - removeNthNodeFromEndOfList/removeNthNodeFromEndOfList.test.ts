@@ -7,7 +7,8 @@ describe("test removeNthNodeFromEndOfList function", () => {
             { head: [1], n: 1, expected: [] },
             { head: [1, 2], n: 1, expected: [1] }
         ])(
-            'removeNthNodeFromEndOfList(%s) should alter input to be %s', (example: { head: number[], n: number, expected: number[] }) => {
+            'removeNthNodeFromEndOfList(%s) should alter input to be %s',
+            (example: { head: number[], n: number, expected: number[] }) => {
                 const linkedList = listFromArray(example.head);
                 let actual = removeNthNodeFromEndOfList(linkedList, example.n);
                 expect(arrayFromList(actual)).toEqual(example.expected);

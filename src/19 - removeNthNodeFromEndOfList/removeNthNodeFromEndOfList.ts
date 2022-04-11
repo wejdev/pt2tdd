@@ -11,7 +11,17 @@
  */
 
 function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-    
+    let nodesTraversed = 0;
+    let nodesToLag = n;
+    let laggingNode = head;
+    let currentNode = head;
+    while (currentNode && laggingNode) {
+        if (nodesTraversed++ >= nodesToLag++)
+            laggingNode = laggingNode.next;
+        currentNode = currentNode.next;
+    }
+
+    //remove found node
     return head;
 };
 
@@ -50,3 +60,4 @@ The number of nodes in the list is sz.
 
 Follow up: Could you do this in one pass?
 */
+
