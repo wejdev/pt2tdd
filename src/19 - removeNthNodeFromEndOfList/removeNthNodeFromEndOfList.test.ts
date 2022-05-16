@@ -3,9 +3,15 @@ import { removeNthNodeFromEndOfList, ListNode } from "./removeNthNodeFromEndOfLi
 describe("test removeNthNodeFromEndOfList function", () => {
     test.each(
         [
-            { head: [1, 2, 3, 4, 5], n: 2, expected: [1, 2, 3, 5] },
+            { head: [], n: 0, expected: [] },
             { head: [1], n: 1, expected: [] },
-            { head: [1, 2], n: 1, expected: [1] }
+            { head: [1, 2], n: 1, expected: [1] },
+            { head: [1, 2], n: 2, expected: [2] },
+            { head: [1, 2, 3], n: 1, expected: [1, 2] },
+            { head: [1, 2, 3], n: 2, expected: [1, 3] },
+            { head: [1, 2, 3], n: 3, expected: [2, 3] },
+            { head: [1, 2, 3, 4, 5], n: 2, expected: [1, 2, 3, 5] },
+            { head: [1, 2, 3, 4, 5, 6, 7, 8, 9], n: 5, expected: [1, 2, 3, 4, 6, 7, 8, 9] }
         ])(
             'removeNthNodeFromEndOfList(%s) should alter input to be %s',
             (example: { head: number[], n: number, expected: number[] }) => {
