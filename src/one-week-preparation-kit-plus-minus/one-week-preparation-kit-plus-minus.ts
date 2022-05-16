@@ -5,7 +5,7 @@ function plusMinusCalc(arr: number[]): number[] {
     let totalCount = 0;
 
     arr.forEach(n => {
-        totalCount = 0;
+        totalCount++;
         if (n > 0)
             plusCount++;
         else if (n < 0)
@@ -13,7 +13,7 @@ function plusMinusCalc(arr: number[]): number[] {
         else
             zeroCount++;
     });
-    
+
     return [
         parseFloat((plusCount / totalCount).toFixed(6)),
         parseFloat((minusCount / totalCount).toFixed(6)),
