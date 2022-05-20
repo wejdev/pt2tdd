@@ -9,12 +9,14 @@ function isAnagram(s: string, t: string): boolean {
         sCounts.set(val, sCounts.has(val) ? sCounts.get(val)! + 1 : 1);
     });
 
-    [...s].forEach((val, index) => {
+    [...s].forEach(val => {
         tCounts.set(val, tCounts.has(val) ? tCounts.get(val)! + 1 : 1);
     });
 
     for (let [key, val] of sCounts.entries()) {
-        if (!tCounts.has(key) || tCounts.get(key) !== val)
+        const isMissingThisLetter = !tCounts.has(key);
+        const hasDifferentLetterCount = tCounts.get(key) !== val;
+        if (isMissingThisLetter || hasDifferentLetterCount)
             return false;
     }
 
