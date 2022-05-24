@@ -9,7 +9,7 @@ function isAnagram(s: string, t: string): boolean {
         sCounts.set(val, sCounts.has(val) ? sCounts.get(val)! + 1 : 1);
     });
 
-    [...s].forEach(val => {
+    [...t].forEach(val => {
         tCounts.set(val, tCounts.has(val) ? tCounts.get(val)! + 1 : 1);
     });
 
