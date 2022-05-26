@@ -19,7 +19,7 @@ function canVisitAllRooms(rooms: number[][]): boolean {
 };
 
 function canVisitAllRooms2(rooms: number[][]): boolean {
-    let visitedRooms = new Set<number>;
+    let visitedRooms = new Set<number>();
     visitedRooms.add(0);
 
     let keys: number[] = [];
@@ -35,6 +35,26 @@ function canVisitAllRooms2(rooms: number[][]): boolean {
     }
 
     return visitedRooms.size === rooms.length;
+};
+
+function canVisitAllRooms3(rooms: number[][]): boolean {
+    let visitedRooms = (new Array<boolean>(rooms.length)).fill(false);
+    visitedRooms[0] = true;
+
+    visitRoom3(rooms, 0, visitedRooms);
+
+    return !visitedRooms.some(room => room === false);
+};
+
+ function visitRoom3(rooms: number[][], roomNumber: number, visitedRooms: boolean[]): boolean {
+    rooms[roomNumber].forEach(key => {
+        if (visitedRooms[key] !== true) {
+            visitedRooms[key] = true;
+            visitRoom3(rooms, key, visitedRooms);
+        }
+    });
+
+    return true;
 };
 
 export { canVisitAllRooms as keysAndRooms }
