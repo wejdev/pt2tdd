@@ -1,4 +1,4 @@
-import { plusMinusCalc } from "./one-week-preparation-kit-plus-minus";
+import { plusMinusCalc } from "./plusMinus";
 
 describe("test plusMinusCalc function", () => {
     test.each(
