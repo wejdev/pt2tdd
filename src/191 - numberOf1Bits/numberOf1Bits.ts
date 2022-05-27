@@ -9,18 +9,18 @@ function hammingWeight(n: number): number {
     return bitCount;
 };
 
-function hammingWeight2(n: number): number {
+function hammingWeightKernighan(n: number): number {
     let bitCount = 0;
 
     while (n) {
-        n = n & (n - 1);
+        n &= n - 1;
         bitCount++;
     }
 
     return bitCount;
 };
 
-export { hammingWeight2 as numberOf1Bits }
+export { hammingWeight as numberOf1Bits }
 
 /*
 Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
