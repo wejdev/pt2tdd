@@ -21,6 +21,7 @@ function fill(image: number[][], sr: number, sc: number, newColor: number, seekC
         fill(image, sr, sc + 1, newColor, seekColor);
     }
 }
+
 export { floodFill }
 
 /*

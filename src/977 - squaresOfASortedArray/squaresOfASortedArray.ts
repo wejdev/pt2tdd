@@ -1,7 +1,5 @@
 function sortedSquares(nums: number[]): number[] {
-    return nums
-        .map(n => n * n)
-        .sort((n, m) => n > m ? 1 : n < m ? -1 : 0);
+    return nums.map(n => n * n).sort((n, m) => n - m);
 };
 
 export { sortedSquares as squaresOfASortedArray }

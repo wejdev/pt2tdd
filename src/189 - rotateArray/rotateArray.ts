@@ -5,7 +5,7 @@
 function rotate(nums: number[], k: number): void {
     const numsLen = nums.length;
     k = k % numsLen;
-    nums.unshift(...nums.splice(nums.length - k, k));
+    nums.unshift(...nums.splice(numsLen - k, k));
 };
 
 function rotate2(nums: number[], k: number): void {
