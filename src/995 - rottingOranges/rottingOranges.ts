@@ -1,4 +1,19 @@
 function orangesRotting(grid: number[][]): number {
+    let freshOranges = new Set<string>();
+
+    grid.forEach((row, rowNum) => {
+        row.forEach((col, colNum) => {
+            if (col === 1) {
+                const rowIndex = String.fromCharCode(("A".charCodeAt(0) + rowNum));
+                const columnIndex = String.fromCharCode(("0".charCodeAt(0) + colNum));
+                const orangeId = `${rowIndex}${columnIndex}`;
+                freshOranges.add(orangeId);
+            }
+        })
+    });
+
+    freshOranges.forEach(o => console.log(o));
+
     return -1;
 }
 
