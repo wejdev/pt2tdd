@@ -12,7 +12,14 @@ function orangesRotting(grid: number[][]): number {
         })
     });
 
-    freshOranges.forEach(o => console.log(o));
+    freshOranges.forEach(o => {
+        console.log(o);
+
+    });
+
+    function isRottenOrange(grid: number[][], row: number, col: number): boolean {
+        return (grid[row][col] === 1);
+    }
 
     return -1;
 }
