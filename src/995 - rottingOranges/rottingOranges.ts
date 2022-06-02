@@ -17,8 +17,29 @@ function orangesRotting(grid: number[][]): number {
 
     });
 
-    function isRottenOrange(grid: number[][], row: number, col: number): boolean {
-        return (grid[row][col] === 1);
+    function isCurrentlyRotten(grid: number[][], row: number, col: number): boolean {
+        return grid[row][col] === 2;
+    };
+
+    function isNewlyRotten(grid: number[][], row: number, col: number): boolean {
+
+        if (row < 0 || row >= grid.length ||
+            col < 0 || col >= grid[0].length)
+            return false;
+
+        const curColor = grid[row][col];
+
+        if (curColor === newColor)
+            return;
+
+        if (curColor == seekColor) {
+            grid[row][col] = newColor;
+            fill(grid, row - 1, col, newColor, seekColor);
+            fill(grid, row + 1, col, newColor, seekColor);
+            fill(grid, row, col - 1, newColor, seekColor);
+            fill(grid, row, col + 1, newColor, seekColor);
+        }
+        return (grid[row][col] === 2);
     }
 
     return -1;
