@@ -1,12 +1,17 @@
 function orangesRotting(grid: number[][]): number {
+    const NO_ORANGE = 0;
+    const FRESH_ORANGE = 1;
+    const ROTTEN_ORANGE = 2;
+    const IMPOSSIBLE = -1;
+
     let freshOranges = new Set<string>();
 
     grid.forEach((row, rowNum) => {
         row.forEach((col, colNum) => {
-            if (col === 1) {
-                const rowIndex = String.fromCharCode(('A'.charCodeAt(0) + rowNum));
-                const columnIndex = String.fromCharCode(('0'.charCodeAt(0) + colNum));
-                const orangeId = `${rowIndex}${columnIndex}`;
+            if (col === FRESH_ORANGE) {
+                const rowIndex = rowNum + '';
+                const columnIndex = colNum + '';
+                const orangeId = `${rowIndex},${columnIndex}`;
                 freshOranges.add(orangeId);
             }
         });
@@ -14,24 +19,28 @@ function orangesRotting(grid: number[][]): number {
 
     let numberOfIterations = 0;
     let haveSomeOrangesRotted = false;
-    while (!haveSomeOrangesRotted) {
-        freshOranges.forEach((grid: number[][], o: string) => {
+    while (!haveSomeOrangesRotted && freshOranges.size > 0) {
+        freshOranges.forEach(o => {
             console.log(o);
-            const row = 1;
-            const col = 2;
+            const orangeId = o.split(',');
+            const row = Number(orangeId[0]);
+            const col = Number(orangeId[1]);
             if (isNewlyRotten(grid, row, col)) {
                 freshOranges.delete(o);
-                grid[row][col] = 2;
+                grid[row][col] = ROTTEN_ORANGE;
                 haveSomeOrangesRotted = true;
             }
         });
-        numberOfIterations++;
+        if (haveSomeOrangesRotted)
+            numberOfIterations++;
     }
 
     return freshOranges.size > 0 ? -1 : numberOfIterations;
 
     function isCurrentlyRotten(grid: number[][], row: number, col: number): boolean {
-        return grid[row][col] === 2;
+        if (isOutOfBounds(row, grid, col))
+            return false;
+        return grid[row][col] === ROTTEN_ORANGE;
     };
 
     function isNewlyRotten(grid: number[][], row: number, col: number): boolean {
@@ -49,7 +58,7 @@ function orangesRotting(grid: number[][]): number {
             col < 0 || col >= grid[0].length);
     }
 
-    return -1;
+    return IMPOSSIBLE;
 }
 
 export { orangesRotting as rottingOranges };
@@ -78,7 +87,8 @@ because rotting only happens 4-directionally.
 Example 3:
 Input: grid = [[0,2]]
 Output: 0
-Explanation: Since there are already no fresh oranges at minute 0, the answer is just 0.
+Explanation: Since there are already no fresh oranges at minute 0,
+the answer is just 0.
 
 Constraints:
 m == grid.length
