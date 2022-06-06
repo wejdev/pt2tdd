@@ -1,67 +1,64 @@
 function orangesRotting(grid: number[][]): number {
-    const NO_ORANGE = 0;
     const FRESH_ORANGE = 1;
     const ROTTEN_ORANGE = 2;
     const IMPOSSIBLE = -1;
 
     let freshOranges = new Set<string>();
+    let rottenOranges = new Set<string>();
 
     grid.forEach((row, rowNum) => {
         row.forEach((col, colNum) => {
+            const orangeId = toHash(rowNum, colNum);
             if (col === FRESH_ORANGE) {
-                const rowIndex = rowNum + '';
-                const columnIndex = colNum + '';
-                const orangeId = `${rowIndex},${columnIndex}`;
                 freshOranges.add(orangeId);
+            } else if (col === ROTTEN_ORANGE) {
+                rottenOranges.add(orangeId);
             }
         });
     });
 
     let numberOfIterations = 0;
-    let haveSomeOrangesRotted = false;
-    while (!haveSomeOrangesRotted && freshOranges.size > 0) {
-        freshOranges.forEach(o => {
-            console.log(o);
-            const orangeId = o.split(',');
-            const row = Number(orangeId[0]);
-            const col = Number(orangeId[1]);
-            if (isNewlyRotten(grid, row, col)) {
-                freshOranges.delete(o);
-                grid[row][col] = ROTTEN_ORANGE;
-                haveSomeOrangesRotted = true;
+    while (freshOranges.size > 0) {
+        let rottingOranges = new Set<string>();
+        freshOranges.forEach(orangeId => {
+            if (isNewlyRotten(orangeId)) {
+                freshOranges.delete(orangeId);
+                rottingOranges.add(orangeId);
             }
         });
-        if (haveSomeOrangesRotted)
-            numberOfIterations++;
+
+        if (rottingOranges.size === 0)
+            return IMPOSSIBLE;
+
+        rottenOranges = rottingOranges;
+        numberOfIterations++;
     }
 
-    return freshOranges.size > 0 ? -1 : numberOfIterations;
+    return numberOfIterations;
 
-    function isCurrentlyRotten(grid: number[][], row: number, col: number): boolean {
-        if (isOutOfBounds(row, grid, col))
-            return false;
-        return grid[row][col] === ROTTEN_ORANGE;
-    };
+    function isNewlyRotten(orangeId: string): boolean {
+        let row, col;
+        [row, col] = fromHash(orangeId);
 
-    function isNewlyRotten(grid: number[][], row: number, col: number): boolean {
-        if (isOutOfBounds(row, grid, col))
-            return false;
-
-        return (isCurrentlyRotten(grid, row - 1, col) ||
-            isCurrentlyRotten(grid, row + 1, col) ||
-            isCurrentlyRotten(grid, row, col - 1) ||
-            isCurrentlyRotten(grid, row, col + 1));
+        return (
+            rottenOranges.has(toHash(row + 1, col)) ||
+            rottenOranges.has(toHash(row - 1, col)) ||
+            rottenOranges.has(toHash(row, col + 1)) ||
+            rottenOranges.has(toHash(row, col - 1)));
     }
-
-    function isOutOfBounds(row: number, grid: number[][], col: number) {
-        return (row < 0 || row >= grid.length ||
-            col < 0 || col >= grid[0].length);
-    }
-
-    return IMPOSSIBLE;
 }
 
-export { orangesRotting as rottingOranges };
+function toHash(row: number, col: number): string {
+    const rowIndex = row + '';
+    const columnIndex = col + '';
+    return `${rowIndex},${columnIndex}`;
+}
+
+function fromHash(hash: string): number[] {
+    return hash.split(',').map(x => Number(x));
+}
+
+export { orangesRotting as rottingOranges, fromHash, toHash };
 
 /*
 You are given an m x n grid where each cell can have one of three values:
