@@ -49,7 +49,7 @@ function orangesRotting(grid: number[][]): number {
 
     return freshOranges === 0 ? minutes : IMPOSSIBLE;
 
-    function isFresh(row: number, col: number): boolean {
+    function isFresh(row: number, col: number) {
         return (
             row >= 0 && row < ROW_COUNT &&
             col >= 0 && col < COL_COUNT &&
@@ -58,14 +58,12 @@ function orangesRotting(grid: number[][]): number {
     }
 }
 
-function toHash(row: number, col: number, rowSize: number): number {
-    return row * rowSize + col;
+function toHash(row: number, col: number, colSize: number) {
+    return row * colSize + col;
 }
 
-function fromHash(hash: number, rowSize: number): number[] {
-    let row = Math.trunc(hash / rowSize);
-    let col = hash % rowSize;
-    return [row, col];
+function fromHash(hash: number, colSize: number) {
+    return [Math.trunc(hash / colSize), hash % colSize];
 }
 
 export { orangesRotting as rottingOranges, fromHash, toHash };
