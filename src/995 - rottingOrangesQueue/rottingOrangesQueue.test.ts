@@ -4,23 +4,20 @@ describe("toHash", () => {
     test.each(
         [
             [
-                0, 0, "0,0"
+                0, 0, 5, 0
             ],
             [
-                0, 2, "0,2"
+                0, 2, 5, 2
             ],
             [
-                -1, 0, "-1,0"
+                2, 4, 5, 14
             ],
             [
-                0, -1, "0,-1"
-            ],
-            [
-                -2, -4, "-2,-4"
+                0, 2, 5, 2
             ],
         ])(
-            'toHash(%i, %i) should return %s', (row: number, col: number, expected: string) => {
-                const result = toHash(row, col);
+            'toHash(%i, %i, %i) should return %i', (row: number, col: number, rowSize: number, expected: number) => {
+                const result = toHash(row, col, rowSize);
                 expect(result).toEqual(expected);
             });
 });
@@ -29,23 +26,23 @@ describe("fromHash", () => {
     test.each(
         [
             [
-                "0,0", [0, 0]
+                0, 5, [0, 0]
             ],
             [
-                "0,2", [0, 2]
+                2, 5, [0, 2]
             ],
             [
-                "-1,0", [-1, 0]
+                5, 5, [1, 0]
             ],
             [
-                "0,-1", [0, -1]
+                13, 5, [2, 3]
             ],
             [
-                "-2,-4", [-2, -4]
+                2, 4, [0, 2]
             ],
         ])(
-            'fromHash(%s) should return %j', (hash: string, expected: number[]) => {
-                const result = fromHash(hash);
+            'fromHash(%i, %i) should return %j', (hash: number, rowSize: number, expected: number[]) => {
+                const result = fromHash(hash, rowSize);
                 expect(result).toEqual(expected);
             });
 });
@@ -104,6 +101,12 @@ describe("test rottingOranges function", () => {
                     [1, 0, 0, 0],
                 ],
                 -1
+            ],
+            [
+                [
+                    [2, 2, 2, 1, 1],
+                ],
+                2
             ],
         ])(
             'rottingOranges() should alter %j to be %i', (

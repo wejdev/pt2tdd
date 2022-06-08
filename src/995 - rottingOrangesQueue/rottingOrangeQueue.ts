@@ -1,63 +1,71 @@
 function orangesRotting(grid: number[][]): number {
-    const FRESH_ORANGE = 1;
-    const ROTTEN_ORANGE = 2;
+    const FRESH = 1;
+    const ROTTEN = 2;
+
     const IMPOSSIBLE = -1;
 
-    const MAX_ROWS = grid.length;
-    const MAX_COLS = grid[0].length;
+    const ROW_COUNT = grid.length;
+    const COL_COUNT = grid[0].length;
 
-    let rottenQueue  = [];
-    let fresh = 0;
-    grid.forEach((row, rowNum) => {
-        row.forEach((col, colNum) => {
-            if (col === FRESH_ORANGE) {
-                fresh++;
+    let freshOranges = 0;
+    let rottenQueue: number[] = [];
+    for (let row = 0; row < ROW_COUNT; row++) {
+        for (let col = 0; col < COL_COUNT; col++) {
+            const orange = grid[row][col];
+            if (orange === FRESH) {
+                freshOranges++;
             }
-            if (col === ROTTEN_ORANGE) {
-                rottenQueue.push({ rowNum, colNum });
+            if (orange === ROTTEN) {
+                rottenQueue.push(toHash(row, col, COL_COUNT));
             }
-        });
-    });
-
-    let numberOfIterations = 0;
-    while (rottenQueue.length > 0 and ) {
-        let rottingOranges = new Set<string>();
-        freshOranges.forEach(orangeId => {
-            if (isNewlyRotten(orangeId)) {
-                freshOranges.delete(orangeId);
-                rottingOranges.add(orangeId);
-            }
-        });
-
-        if (rottingOranges.size === 0)
-            return IMPOSSIBLE;
-
-        rottenOranges = rottingOranges;
-        numberOfIterations++;
+        }
     }
 
-    return numberOfIterations;
+    let minutes = 0;
+    while (rottenQueue.length > 0 && freshOranges > 0) {
 
-    function isNewlyRotten(orangeId: string): boolean {
-        let row, col;
-        [row, col] = fromHash(orangeId);
+        const queueSize = rottenQueue.length;
+        for (let i = 0; i < queueSize; i++) {
+            const hash = rottenQueue.shift()!;
+            let row: number;
+            let col: number;
+            [row, col] = fromHash(hash, COL_COUNT);
 
+            const directions = [[-1, 0], [1, 0], [0, 1], [0, -1]];
+            directions.forEach((direction) => {
+                const curRow = row + direction[0];
+                const curCol = col + direction[1];
+
+                if (isFresh(curRow, curCol)) {
+                    rottenQueue.push(toHash(curRow, curCol, COL_COUNT));
+                    freshOranges--;
+                    grid[curRow][curCol] = ROTTEN;
+                }
+            });
+        }
+
+        minutes++;
+    }
+
+    return freshOranges === 0 ? minutes : IMPOSSIBLE;
+
+    function isFresh(row: number, col: number): boolean {
         return (
-            rottenOranges.has(toHash(row + 1, col)) ||
-            rottenOranges.has(toHash(row - 1, col)) ||
-            rottenOranges.has(toHash(row, col + 1)) ||
-            rottenOranges.has(toHash(row, col - 1)));
+            row >= 0 && row < ROW_COUNT &&
+            col >= 0 && col < COL_COUNT &&
+            grid[row][col] === FRESH
+        );
     }
 }
 
-function toHash(row: number, col: number): string {
-    const rowIndex = row + '';
-    const columnIndex = col + '';
-    return `${rowIndex},${columnIndex}`;
+function toHash(row: number, col: number, rowSize: number): number {
+    return row * rowSize + col;
 }
 
-function fromHash(hash: string): number[] {
-    return hash.split(',').map(x => Number(x));
+function fromHash(hash: number, rowSize: number): number[] {
+    let row = Math.trunc(hash / rowSize);
+    let col = hash % rowSize;
+    return [row, col];
 }
 
 export { orangesRotting as rottingOranges, fromHash, toHash };
