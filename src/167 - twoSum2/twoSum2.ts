@@ -14,7 +14,7 @@ function twoSum(numbers: number[], target: number): number[] {
     }
 
     return [];
-};
+}
 
 function twoSum2(numbers: number[], target: number): number[] {
     for (let i = 0; i <= numbers.length - 1; i++) {
@@ -23,7 +23,7 @@ function twoSum2(numbers: number[], target: number): number[] {
                 return [i + 1, j + 1];
     }
     return [];
-};
+}
 
 function twoSum3(numbers: number[], target: number): number[] {
     let beginning: number = 0;
@@ -35,7 +35,7 @@ function twoSum3(numbers: number[], target: number): number[] {
         sum = numbers[beginning] + numbers[ending];
     }
     return [beginning + 1, ending + 1];
-};
+}
 
 export { twoSum as twoSum2 }
 
