@@ -16,7 +16,7 @@ function canVisitAllRooms(rooms: number[][]): boolean {
     }
 
     return !visitedRooms.some(room => room === false);
-};
+}
 
 function canVisitAllRooms2(rooms: number[][]): boolean {
     let visitedRooms = new Set<number>();
@@ -35,7 +35,7 @@ function canVisitAllRooms2(rooms: number[][]): boolean {
     }
 
     return visitedRooms.size === rooms.length;
-};
+}
 
 function canVisitAllRooms3(rooms: number[][]): boolean {
     let visitedRooms = (new Array<boolean>(rooms.length)).fill(false);
@@ -43,21 +43,21 @@ function canVisitAllRooms3(rooms: number[][]): boolean {
 
     visitRoom3(rooms, 0, visitedRooms);
 
-    return !visitedRooms.some(room => room === false);
-};
+    return !visitedRooms.some(room => !room);
+}
 
- function visitRoom3(rooms: number[][], roomNumber: number, visitedRooms: boolean[]): boolean {
+function visitRoom3(rooms: number[][], roomNumber: number, visitedRooms: boolean[]): boolean {
     rooms[roomNumber].forEach(key => {
-        if (visitedRooms[key] !== true) {
+        if (!visitedRooms[key]) {
             visitedRooms[key] = true;
             visitRoom3(rooms, key, visitedRooms);
         }
     });
 
     return true;
-};
+}
 
-export { canVisitAllRooms as keysAndRooms }
+export { canVisitAllRooms as keysAndRooms };
 
 /*
 There are n rooms labeled from 0 to n - 1 and all the rooms are locked except for room 0.

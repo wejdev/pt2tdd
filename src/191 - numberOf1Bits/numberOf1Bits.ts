@@ -7,7 +7,7 @@ function hammingWeight(n: number): number {
     }
 
     return bitCount;
-};
+}
 
 function hammingWeightKernighan(n: number): number {
     let bitCount = 0;
@@ -18,9 +18,9 @@ function hammingWeightKernighan(n: number): number {
     }
 
     return bitCount;
-};
+}
 
-export { hammingWeight as numberOf1Bits }
+export { hammingWeight as numberOf1Bits };
 
 /*
 Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).

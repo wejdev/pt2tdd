@@ -4,20 +4,20 @@ function fizzBuzz(n: number): string[] {
 
     for (let i = 1; i <= n; i++) {
         if (i % 3 === 0 && i % 5 === 0)
-            results.push("FizzBuzz")
+            results.push('FizzBuzz');
         else if (i % 3 === 0)
-            results.push("Fizz");
+            results.push('Fizz');
         else if (i % 5 === 0)
-            results.push("Buzz")
+            results.push('Buzz');
         else
             results.push(String(i));
 
     }
 
     return results;
-};
+}
 
-export { fizzBuzz }
+export { fizzBuzz };
 
 
 /*

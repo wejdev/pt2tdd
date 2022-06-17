@@ -22,7 +22,7 @@ function middleNode(head: ListNode | null): ListNode | null {
     }
 
     return midp;
-};
+}
 
 function middleNode2(head: ListNode | null): ListNode | null {
     let slow = head;
@@ -34,16 +34,17 @@ function middleNode2(head: ListNode | null): ListNode | null {
     }
 
     return slow;
-};
+}
 
-export { middleNode as middleOfTheLinkedList, ListNode }
+export { middleNode as middleOfTheLinkedList, ListNode };
 
 class ListNode {
-    val: number
-    next: ListNode | null
+    val: number;
+    next: ListNode | null;
+
     constructor(val?: number, next?: ListNode | null) {
-        this.val = (val === undefined ? 0 : val)
-        this.next = (next === undefined ? null : next)
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
     }
 }
 

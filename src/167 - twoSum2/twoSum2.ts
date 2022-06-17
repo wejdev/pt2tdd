@@ -1,15 +1,15 @@
 function twoSum(numbers: number[], target: number): number[] {
-    let left = 0
-    let right = numbers.length - 1
+    let left = 0;
+    let right = numbers.length - 1;
 
     while (left < right) {
-        const sum = numbers[left] + numbers[right]
+        const sum = numbers[left] + numbers[right];
         if (sum === target) {
-            return [left + 1, right + 1]
+            return [left + 1, right + 1];
         } else if (sum < target) {
-            left++
+            left++;
         } else {
-            right--
+            right--;
         }
     }
 
@@ -37,7 +37,7 @@ function twoSum3(numbers: number[], target: number): number[] {
     return [beginning + 1, ending + 1];
 }
 
-export { twoSum as twoSum2 }
+export { twoSum as twoSum2 };
 
 /*
 167. Two Sum II - Input Array Is Sorted

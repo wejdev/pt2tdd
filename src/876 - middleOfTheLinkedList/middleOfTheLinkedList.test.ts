@@ -1,6 +1,6 @@
-import { middleOfTheLinkedList, ListNode } from "./middleOfTheLinkedList";
+import { ListNode, middleOfTheLinkedList } from './middleOfTheLinkedList';
 
-describe("test middleOfTheLinkedList function", () => {
+describe('test middleOfTheLinkedList function', () => {
     test.each(
         [
             { head: [0], expected: [0] },
@@ -17,11 +17,11 @@ describe("test middleOfTheLinkedList function", () => {
             { head: [1, 2, 3, 4, 5, 6], expected: [4, 5, 6] }
 
         ])(
-            'middleOfTheLinkedList(%s) should alter input to be %s', (example: { head: number[], expected: number[] }) => {
-                const actual = middleOfTheLinkedList(listFromArray(example.head))?.val;
-                expect(actual).toEqual(example.expected[0]);
-            },
-        );
+        'middleOfTheLinkedList(%s) should alter input to be %s', (example: { head: number[], expected: number[] }) => {
+            const actual = middleOfTheLinkedList(listFromArray(example.head))?.val;
+            expect(actual).toEqual(example.expected[0]);
+        }
+    );
 });
 
 function listFromArray(nums: number[]): ListNode | null {

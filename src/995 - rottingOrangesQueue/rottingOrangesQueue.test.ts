@@ -1,6 +1,6 @@
-import { rottingOranges, toHash, fromHash } from "./rottingOrangeQueue";
+import { fromHash, rottingOranges, toHash } from './rottingOrangeQueue';
 
-describe("toHash", () => {
+describe('toHash', () => {
     test.each(
         [
             [
@@ -14,15 +14,15 @@ describe("toHash", () => {
             ],
             [
                 0, 2, 5, 2
-            ],
+            ]
         ])(
-            'toHash(%i, %i, %i) should return %i', (row: number, col: number, rowSize: number, expected: number) => {
-                const result = toHash(row, col, rowSize);
-                expect(result).toEqual(expected);
-            });
+        'toHash(%i, %i, %i) should return %i', (row: number, col: number, rowSize: number, expected: number) => {
+            const result = toHash(row, col, rowSize);
+            expect(result).toEqual(expected);
+        });
 });
 
-describe("fromHash", () => {
+describe('fromHash', () => {
     test.each(
         [
             [
@@ -39,15 +39,15 @@ describe("fromHash", () => {
             ],
             [
                 2, 4, [0, 2]
-            ],
+            ]
         ])(
-            'fromHash(%i, %i) should return %j', (hash: number, rowSize: number, expected: number[]) => {
-                const result = fromHash(hash, rowSize);
-                expect(result).toEqual(expected);
-            });
+        'fromHash(%i, %i) should return %j', (hash: number, rowSize: number, expected: number[]) => {
+            const result = fromHash(hash, rowSize);
+            expect(result).toEqual(expected);
+        });
 });
 
-describe("test rottingOranges function", () => {
+describe('test rottingOranges function', () => {
     test.each(
         [
             [
@@ -89,7 +89,7 @@ describe("test rottingOranges function", () => {
                     [2, 0, 0, 2],
                     [1, 1, 1, 1],
                     [0, 0, 1, 1],
-                    [0, 0, 0, 0],
+                    [0, 0, 0, 0]
                 ],
                 3
             ],
@@ -98,21 +98,21 @@ describe("test rottingOranges function", () => {
                     [2, 0, 0, 2],
                     [1, 1, 1, 1],
                     [0, 0, 1, 1],
-                    [1, 0, 0, 0],
+                    [1, 0, 0, 0]
                 ],
                 -1
             ],
             [
                 [
-                    [2, 2, 2, 1, 1],
+                    [2, 2, 2, 1, 1]
                 ],
                 2
-            ],
+            ]
         ])(
-            'rottingOranges() should alter %j to be %i', (
-                grid: number[][],
-                expected: number
-            ) => {
+        'rottingOranges() should alter %j to be %i', (
+            grid: number[][],
+            expected: number
+        ) => {
             const result = rottingOranges(grid);
             expect(result).toEqual(expected);
         });

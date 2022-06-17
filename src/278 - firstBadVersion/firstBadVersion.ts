@@ -5,8 +5,8 @@
  * };
  */
 
-var solution = function (isBadVersion: any) {
-    return function (n: number): number {
+let solution = function(isBadVersion: any) {
+    return function(n: number): number {
         let left = 1;
         let right = n;
         let middle = 0;
@@ -24,7 +24,7 @@ var solution = function (isBadVersion: any) {
     };
 };
 
-export { solution as firstBadVersion }
+export { solution as firstBadVersion };
 
 /*
 You are a product manager and currently leading a team to develop a new product.

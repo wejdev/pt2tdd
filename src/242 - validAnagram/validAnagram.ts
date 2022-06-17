@@ -21,9 +21,9 @@ function isAnagram(s: string, t: string): boolean {
     }
 
     return true;
-};
+}
 
-export { isAnagram as isAnagram }
+export { isAnagram as isAnagram };
 
 export function isAnagram2(s: string, t: string): boolean {
     return [...s].sort().join('') === [...t].sort().join('');

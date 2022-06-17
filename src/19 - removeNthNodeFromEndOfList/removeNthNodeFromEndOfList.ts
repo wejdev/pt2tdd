@@ -34,16 +34,17 @@ function removeNthFromEnd(firstNode: ListNode | null, nodesFromEnd: number): Lis
     laggingNode.next = deletedNode.next;
 
     return head.next;
-};
+}
 
-export { removeNthFromEnd as removeNthNodeFromEndOfList, ListNode }
+export { removeNthFromEnd as removeNthNodeFromEndOfList, ListNode };
 
 class ListNode {
-    val: number
-    next: ListNode | null
+    val: number;
+    next: ListNode | null;
+
     constructor(val?: number, next?: ListNode | null) {
-        this.val = (val === undefined ? 0 : val)
-        this.next = (next === undefined ? null : next)
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
     }
 }
 

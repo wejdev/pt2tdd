@@ -1,9 +1,9 @@
 function reverseWords(s: string): string {
     return s
-        .split(" ")
+        .split(' ')
         .map(w => reverseString(w))
-        .join(" ");
-};
+        .join(' ');
+}
 
 function reverseString(str: string): string {
     let s = str.split('');
@@ -15,9 +15,9 @@ function reverseString(str: string): string {
         right--;
     }
     return s.join('');
-};
+}
 
-export { reverseWords as reverseStringInWords3 }
+export { reverseWords as reverseStringInWords3 };
 
 /*
 557. Reverse Words in a String III

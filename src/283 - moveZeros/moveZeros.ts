@@ -9,7 +9,8 @@ function moveZeroes(nums: number[]): void {
             nums.splice(i, 1);
             zeroCount++;
         }
-    };
+    }
+
     const zeros = new Array(zeroCount).fill(0);
     nums.push(...zeros);
 }
@@ -22,7 +23,8 @@ function moveZeroes2(nums: number[]): void {
             nums.splice(i, 1);
             zeroCount++;
         }
-    };
+    }
+
     for (let i = 0; i < zeroCount; i++)
         nums.push(0);
 }
@@ -34,7 +36,8 @@ function moveZeroes3(nums: number[]): void {
             nums.splice(i, 1);
             nums.push(0);
         }
-    };
+    }
+
 }
 
 function moveZeroes4(nums: number[]): void {
@@ -46,9 +49,9 @@ function moveZeroes4(nums: number[]): void {
             left++;
         }
     }
-};
+}
 
-export { moveZeroes as moveZeros }
+export { moveZeroes as moveZeros };
 
 /*
 Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.

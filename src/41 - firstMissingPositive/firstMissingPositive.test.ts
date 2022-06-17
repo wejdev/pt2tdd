@@ -1,6 +1,6 @@
-import { firstMissingPositive } from "./firstMissingPositive";
+import { firstMissingPositive } from './firstMissingPositive';
 
-describe("test firstMissingPositive function", () => {
+describe('test firstMissingPositive function', () => {
     test.each(
         [
             [
@@ -16,7 +16,7 @@ describe("test firstMissingPositive function", () => {
                 1
             ],
             [
-                [2, 3, 7, 6, 8, - 1, -10, 15],
+                [2, 3, 7, 6, 8, -1, -10, 15],
                 1
             ],
             [
@@ -24,7 +24,7 @@ describe("test firstMissingPositive function", () => {
                 2
             ],
             [
-                [1, 1, 0, - 1, -2],
+                [1, 1, 0, -1, -2],
                 2
             ]
         ]
@@ -32,6 +32,6 @@ describe("test firstMissingPositive function", () => {
         'firstMissingPositive(%j) should compute %i', (numbers: number[], expected: number) => {
             const result = firstMissingPositive(numbers);
             expect(result).toStrictEqual(expected);
-        },
+        }
     );
 });

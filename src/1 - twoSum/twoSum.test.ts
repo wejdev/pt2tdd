@@ -1,6 +1,6 @@
-import { twoSum } from "./twoSum";
+import { twoSum } from './twoSum';
 
-describe("test twoSum2 function", () => {
+describe('test twoSum2 function', () => {
     test.each(
         [
             { numbers: [2, 7, 11, 15], target: 9, expected: [0, 1] },
@@ -10,6 +10,6 @@ describe("test twoSum2 function", () => {
             'twoSum2(%s) should alter input to be %s', (example: { numbers: number[], target: number, expected: number[] }) => {
                 const result = twoSum(example.numbers, example.target);
                 expect(result).toStrictEqual(example.expected);
-            },
+            }
         );
 });

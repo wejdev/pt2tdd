@@ -1,6 +1,6 @@
-import { removeNthNodeFromEndOfList, ListNode } from "./removeNthNodeFromEndOfList";
+import { ListNode, removeNthNodeFromEndOfList } from './removeNthNodeFromEndOfList';
 
-describe("test removeNthNodeFromEndOfList function", () => {
+describe('test removeNthNodeFromEndOfList function', () => {
     test.each(
         [
             { head: [], n: 0, expected: [] },
@@ -13,13 +13,13 @@ describe("test removeNthNodeFromEndOfList function", () => {
             { head: [1, 2, 3, 4, 5], n: 2, expected: [1, 2, 3, 5] },
             { head: [1, 2, 3, 4, 5, 6, 7, 8, 9], n: 5, expected: [1, 2, 3, 4, 6, 7, 8, 9] }
         ])(
-            'removeNthNodeFromEndOfList(%s) should alter input to be %s',
-            (example: { head: number[], n: number, expected: number[] }) => {
-                const linkedList = listFromArray(example.head);
-                let actual = removeNthNodeFromEndOfList(linkedList, example.n);
-                expect(arrayFromList(actual)).toEqual(example.expected);
-            },
-        );
+        'removeNthNodeFromEndOfList(%s) should alter input to be %s',
+        (example: { head: number[], n: number, expected: number[] }) => {
+            const linkedList = listFromArray(example.head);
+            let actual = removeNthNodeFromEndOfList(linkedList, example.n);
+            expect(arrayFromList(actual)).toEqual(example.expected);
+        }
+    );
 });
 
 function listFromArray(nums: number[]): ListNode | null {

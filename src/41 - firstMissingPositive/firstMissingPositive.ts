@@ -38,7 +38,7 @@ function firstMissingPositiveBrute(nums: number[]): number {
     return i;
 }
 
-export { firstMissingPositive as firstMissingPositive }
+export { firstMissingPositive as firstMissingPositive };
 
 /*
 Given an unsorted integer array nums, return the smallest missing positive integer.

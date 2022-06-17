@@ -1,6 +1,6 @@
-import { searchInsertPosition } from "./searchInsertPosition";
+import { searchInsertPosition } from './searchInsertPosition';
 
-describe("test searchInsertPosition function", () => {
+describe('test searchInsertPosition function', () => {
     test.each(
         [
             { nums: [2, 4], target: 1, expected: 0 },
@@ -17,8 +17,8 @@ describe("test searchInsertPosition function", () => {
             { nums: [1, 3, 5, 6], target: 2, expected: 1 },
             { nums: [1, 3, 5, 6], target: 7, expected: 4 }
         ])(
-            'searchInsertPosition(nums, target)) should return output', (input: { nums: number[], target: number, expected: number }): void => {
-                expect(searchInsertPosition(input.nums, input.target)).toBe(input.expected);
-            },
-        );
+        'searchInsertPosition(nums, target)) should return output', (input: { nums: number[], target: number, expected: number }): void => {
+            expect(searchInsertPosition(input.nums, input.target)).toBe(input.expected);
+        }
+    );
 });

@@ -26,7 +26,7 @@ function plusMinus(arr: number[]): void {
     plusMinusCalc(arr).forEach(s => console.log(s));
 }
 
-export { plusMinusCalc }
+export { plusMinusCalc };
 
 
 /*

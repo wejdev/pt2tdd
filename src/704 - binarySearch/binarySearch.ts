@@ -13,16 +13,15 @@ const binarySearch = (x: number[], target: number): number => {
 
         if (target < midValue) {
             end = middle - 1;
-        }
-        else {
+        } else {
             start = middle + 1;
         }
     }
 
     return -1;
-}
+};
 
-export { binarySearch }
+export { binarySearch };
 
 /*
 Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums.If target exists, then return its index.Otherwise, return -1.

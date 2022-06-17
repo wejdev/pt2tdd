@@ -22,7 +22,7 @@ function fill(image: number[][], sr: number, sc: number, newColor: number, seekC
     }
 }
 
-export { floodFill }
+export { floodFill };
 
 /*
 An image is represented by an m x n integer grid image where image[i][j] represents the pixel value of the image.

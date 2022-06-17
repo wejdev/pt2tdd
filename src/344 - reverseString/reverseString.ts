@@ -3,17 +3,17 @@
  */
 function reverseString(s: string[]): void {
     let left = 0;
-    let right = s.length-1;
+    let right = s.length - 1;
     while (left < right) {
         [s[left], s[right]] = [s[right], s[left]];
         left++;
         right--;
     }
-};
+}
 
 function reverseString2(s: string[]): void {
     let left = 0;
-    let right = s.length-1;
+    let right = s.length - 1;
     while (left < right) {
         let temp = s[right];
         s[right] = s[left];
@@ -21,9 +21,9 @@ function reverseString2(s: string[]): void {
         left++;
         right--;
     }
-};
+}
 
-export { reverseString }
+export { reverseString };
 
 /*
 344. Reverse String

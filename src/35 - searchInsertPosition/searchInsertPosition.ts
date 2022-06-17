@@ -17,16 +17,16 @@ function searchInsert(nums: number[], target: number): number {
     }
 
     return left;
-};
+}
 
 
 function searchInsert2(nums: number[], target: number): number {
     // Not O(log(n)), but trick!
     return nums.filter((item: number) => item < target).length;
-};
+}
 
 
-export { searchInsert as searchInsertPosition }
+export { searchInsert as searchInsertPosition };
 
 
 /*

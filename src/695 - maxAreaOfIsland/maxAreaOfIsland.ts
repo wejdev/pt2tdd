@@ -37,7 +37,7 @@ function findIsland(grid: number[][], rowNumber: number, columnNumber: number, v
         findIsland(grid, rowNumber, columnNumber + 1, visited);
 }
 
-export { maxAreaOfIsland as maxAreaOfIsland }
+export { maxAreaOfIsland as maxAreaOfIsland };
 
 /*
 You are given an m x n binary matrix grid. An island is a group of 1's

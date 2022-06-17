@@ -1,6 +1,6 @@
-import { keysAndRooms } from "./keysAndRooms";
+import { keysAndRooms } from './keysAndRooms';
 
-describe("test keysAndRooms function", () => {
+describe('test keysAndRooms function', () => {
     test.each(
         [
             [
@@ -20,10 +20,10 @@ describe("test keysAndRooms function", () => {
                 false
             ]
         ])(
-            'keysAndRooms() should alter %j to be %s', (
-                rooms: number[][],
-                expected: boolean
-            ) => {
+        'keysAndRooms() should alter %j to be %s', (
+            rooms: number[][],
+            expected: boolean
+        ) => {
             const result = keysAndRooms(rooms);
             expect(result).toEqual(expected);
         });

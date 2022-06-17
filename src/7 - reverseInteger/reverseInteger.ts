@@ -8,7 +8,7 @@ function reverse(x: number): number {
         x = Math.trunc(x / 10);
         rev = rev * 10 + remainder;
     }
-    
+
     return (rev < MININT || rev > MAXINT) ? 0 : rev;
 }
 
@@ -21,7 +21,7 @@ function reverseUsingString(x: number): number {
         .join());
 }
 
-export { reverse as reverseInteger }
+export { reverse as reverseInteger };
 
 /*
 Given a signed 32-bit integer x, return x with its digits reversed.

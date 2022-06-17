@@ -1,6 +1,6 @@
-import { maxAreaOfIsland } from "./maxAreaOfIsland";
+import { maxAreaOfIsland } from './maxAreaOfIsland';
 
-describe("test maxAreaOfIsland function", () => {
+describe('test maxAreaOfIsland function', () => {
     test.each(
         [
             [
@@ -17,7 +17,7 @@ describe("test maxAreaOfIsland function", () => {
             ],
             [
                 [[1, 1],
-                [1, 1]],
+                    [1, 1]],
                 4
             ],
             [
@@ -42,10 +42,10 @@ describe("test maxAreaOfIsland function", () => {
                 6
             ]
         ])(
-            'maxAreaOfIsland() should alter %j to be %i', (
-                grid: number[][],
-                expected: number
-            ) => {
+        'maxAreaOfIsland() should alter %j to be %i', (
+            grid: number[][],
+            expected: number
+        ) => {
             const result = maxAreaOfIsland(grid);
             expect(result).toEqual(expected);
         });

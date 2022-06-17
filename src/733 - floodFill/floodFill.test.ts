@@ -1,6 +1,6 @@
-import { floodFill } from "./floodFill";
+import { floodFill } from './floodFill';
 
-describe("test floodFill function", () => {
+describe('test floodFill function', () => {
     test.each(
         [
             [
@@ -26,13 +26,13 @@ describe("test floodFill function", () => {
                 ]
             ]
         ])(
-            'floodFill() should alter input to be', (
-                image: number[][],
-                sr: number,
-                sc: number,
-                newColor: number,
-                expected: number[][]
-            ) => {
+        'floodFill() should alter input to be', (
+            image: number[][],
+            sr: number,
+            sc: number,
+            newColor: number,
+            expected: number[][]
+        ) => {
             const result = floodFill(image, sr, sc, newColor);
             expect(result).toEqual(expected);
         });

@@ -1,6 +1,6 @@
-import { moveZeros } from "./moveZeros";
+import { moveZeros } from './moveZeros';
 
-describe("test moveZeros function", () => {
+describe('test moveZeros function', () => {
     test.each(
         [
             { input: [], expected: [] },
@@ -15,10 +15,10 @@ describe("test moveZeros function", () => {
             { input: [0], expected: [0] }
 
         ])(
-            'moveZeros(%s) should alter input to be %s', (example: { input: number[], expected: number[] }) => {
-                let nums = example.input;
-                moveZeros(nums);
-                expect(nums).toStrictEqual(example.expected);
-            },
-        );
+        'moveZeros(%s) should alter input to be %s', (example: { input: number[], expected: number[] }) => {
+            let nums = example.input;
+            moveZeros(nums);
+            expect(nums).toStrictEqual(example.expected);
+        }
+    );
 });
