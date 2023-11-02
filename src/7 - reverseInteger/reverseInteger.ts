@@ -21,6 +21,15 @@ function reverseUsingString(x: number): number {
         .join());
 }
 
+function reverseIntegerChatGpt(n: number): number {
+    let reversed = 0;
+    while (n !== 0) {
+        reversed = (reversed * 10) + (n % 10);
+        n = Math.floor(n / 10);
+    }
+    return reversed;
+}
+
 export { reverse as reverseInteger };
 
 /*
