@@ -11,7 +11,6 @@ function fizzBuzz(n: number): string[] {
             results.push('Buzz');
         else
             results.push(String(i));
-
     }
 
     return results;
