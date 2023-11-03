@@ -19,7 +19,6 @@ function lonelyInteger(a: number[]): number | undefined {
 }
 
 function lonelyIntegerXor(a: number[]): number {
-
     let result:number = 0;
     a.forEach(n => {
         result ^= n;

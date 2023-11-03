@@ -2,13 +2,6 @@ function findMedian(arr: number[]): number {
     const sorted = arr.sort((a, b) => a - b);
     const middle = Math.floor(sorted.length / 2);
 
-    const arr2 = [
-        1, 176, 79, 107, 76, 166, 128, 174, 62, 180, 47, 10, 64, 52, 48, 143, 171, 178, 2, 83, 191, 153, 125
-    ];
-    const sorted2 = arr2.sort((a, b) => a - b);
-    console.log (sorted2);
-
-
     return sorted[middle];
 }
 
