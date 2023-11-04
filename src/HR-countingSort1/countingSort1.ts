@@ -1,12 +1,9 @@
 function countingSort(arr: number[]): number[] {
-    console.log(arr);
     const counts: number[] = Array(100).fill(0);
-    console.log(counts);
 
     arr.forEach(num => {
         counts[num]++;
     });
-    console.log(counts);
 
     return counts;
 }
